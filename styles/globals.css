@@ -1,3 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800;700;500;400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "graphik-bold";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikBlack.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-semibold";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikSemibold.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-medium";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikMedium.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-regular";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikRegular.otf");
+  }
+}
+
+body {
+  font-family: theme(fontFamily.400);
+  font-size: theme("fontSize.base");
+  line-height: 1.6;
+  color: theme("textColor.light.600");
+}
+
+/* general */
+
+a {
+  color: theme("textColor.primary.500");
+}
+
+/* font sizes */
+
+h1 {
+  font-size: theme("fontSize.5xl");
+}
+
+h2 {
+  font-size: theme("fontSize.4xl");
+}
+
+h3 {
+  font-size: theme("fontSize.3xl");
+}
+
+h4 {
+  font-size: theme("fontSize.2xl");
+}
+
+h5 {
+  font-size: theme("fontSize.xl");
+}
+
+p,
+h6 {
+  font-size: theme("fontSize.base");
+}
+
+/* font weight */
+
+h1 {
+  font-family: theme("fontFamily.primary");
+  font-weight: 800;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: theme(fontFamily.600);
+}
+
+@media(max-width: 640px) {
+  h3 {
+    font-size: theme("fontSize.xl");
+  }
+}
