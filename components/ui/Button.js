@@ -13,7 +13,7 @@ const buttonStyles = cva('w-fit', {
 		size: {
 			large: 'px-10 py-4 text-xl font-600 rounded-xl',
 			medium: 'px-6 py-3 text-sm font-600 rounded-lg',
-			small: 'px-5 py-2 text-sm font-500 rounded-lg',
+			small: 'px-5 py-2 text-sm font-500 rounded',
 		},
 	},
 	defaultVariants: {

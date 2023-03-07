@@ -22,7 +22,7 @@ const CustomLink = ({ size, url, label, ...props }) => {
 	return (
 		<Link
 			href={url}
-			className={`${CustomLinkStyles({ size })} inline-flex gap-3 items-center`}
+			className={`${CustomLinkStyles({ size })} flex w-fit items-center gap-3`}
 			{...props}
 		>
 			<span>{label}</span>
