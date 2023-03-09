@@ -4,8 +4,8 @@ import ClaimRows from './ClaimRows';
 
 const ClaimPageUI = () => {
 	return (
-		<main className="grid min-h-screen grid-cols-1 gap-x-4 gap-y-8 p-4 lg:grid-cols-2">
-			<div className="relative h-96 overflow-hidden rounded-xl lg:h-full">
+		<main className="grid min-h-screen grid-cols-1 gap-x-4 gap-y-8 px-0 pb-4 sm:p-4 lg:grid-cols-2">
+			<div className="relative h-80 overflow-hidden sm:rounded-xl lg:h-full ">
 				<Image
 					src="/claim-background.jpg"
 					alt="cozy verify background"

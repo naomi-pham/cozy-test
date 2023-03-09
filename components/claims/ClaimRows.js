@@ -1,5 +1,5 @@
-import React from 'react';
-import { Disclosure } from '@headlessui/react';
+import React, { useState } from 'react';
+import { download } from '../actions/downloadHtmlFile';
 import { ArrowDown, FileUpload, Mail, MetaTag } from '../icons/ClaimIcons';
 import VerifyEmail from './VerifyEmail';
 import VerifyHtml from './VerifyHtml';
@@ -12,44 +12,61 @@ const ClaimRows = () => {
 			title: 'Verify with a domain email',
 			icon: <Mail />,
 			content: <VerifyEmail />,
+			isOpen: false,
 		},
 		{
 			id: 2,
 			title: 'File upload',
 			icon: <FileUpload />,
-			content: <VerifyHtml />,
+			content: <VerifyHtml downloadHtmlFile={download} />,
+			isOpen: false,
 		},
 		{
 			id: 3,
 			title: 'Meta tag',
 			icon: <MetaTag />,
 			content: <VerifyMetaTag />,
+			isOpen: false,
 		},
 	];
 
+	const [disclosure, setDisclosure] = useState(verifyMethods);
+
+	const handleDisclosure = (id) => () => {
+		setDisclosure(
+			disclosure.map((item) =>
+				item.id === id
+					? { ...item, isOpen: !item.isOpen }
+					: { ...item, isOpen: false },
+			),
+		);
+	};
+
 	return (
-		<div className="mt-10 space-y-6">
-			{verifyMethods.map((item) => (
-				<Disclosure
+		<div className="mx-auto mt-10 max-w-3xl space-y-6">
+			{disclosure?.map((item) => (
+				<div
 					key={item.id}
-					as="div"
-					className="mx-auto max-w-3xl rounded-md border border-light-200 bg-light-50 p-4"
+					className="rounded-md border border-light-200 bg-light-50"
 				>
-					{({ open }) => (
-						<>
-							<Disclosure.Button className="flex w-full justify-between">
-								<div className="flex flex-wrap items-center gap-2 font-500 text-dark-600">
-									<span>{item.icon}</span>
-									<span>{item.title}</span>
-								</div>
-								<ArrowDown className={open ? 'rotate-180 transform' : ''} />
-							</Disclosure.Button>
-							<Disclosure.Panel className="my-2 mt-6">
-								{item.content}
-							</Disclosure.Panel>
-						</>
-					)}
-				</Disclosure>
+					<>
+						<button
+							className="flex w-full justify-between p-4"
+							onClick={handleDisclosure(item.id)}
+						>
+							<div className="flex flex-wrap items-center gap-2">
+								{item.icon}
+								<h6>{item.title}</h6>
+							</div>
+							<ArrowDown
+								className={`transition-transform duration-200 ${
+									item.isOpen ? 'rotate-180 transform' : ''
+								}`}
+							/>
+						</button>
+						{item.isOpen && <div className="p-4 pb-6">{item.content}</div>}
+					</>
+				</div>
 			))}
 		</div>
 	);
