@@ -1,105 +1,177 @@
+                                        /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-	content: [
-		'./app/**/*.{js,ts,jsx,tsx}',
-		'./pages/**/*.{js,ts,jsx,tsx}',
-		'./components/**/*.{js,ts,jsx,tsx}',
-	],
-	theme: {
-		extend: {
-			fontSize: {
-				'4xl': '2.5rem',
-				'3xl': '2rem',
-			},
-			fontFamily: {
-				primary: ['Archivo', 'sans-serif'],
-				400: ['"graphik-regular"'],
-				500: ['"graphik-medium"'],
-				600: ['"graphik-semibold"'],
-				800: ['"graphik-bold"'],
-			},
-			colors: {
-				primary: {
-					700: '#BF3E70', // darkest
-					600: '#DB4781',
-					500: '#E94C89',
-					400: '#F082AC',
-					200: '#FAD8E5',
-					100: '#FDEAF3',
-					50: '#FEF8FA',
-				},
-				secondary: {
-					700: '#3E2F9E', // darkest
-					600: '#4837B6',
-					500: '#4F3CC8',
-					400: '#6558DE',
-					200: '#B0A7E6',
-					100: '#EDECFA',
-					50: '#F6F5FC',
-				},
-				light: {
-					900: '#091E42', // darkest
-					800: '#253858',
-					700: '#6B778C',
-					600: '#9199A7',
-					500: '#B3BAC5',
-					400: '#C1C7D0',
-					300: '#DFE1E6',
-					200: '#EBECF0',
-					100: '#F1F2F4',
-					50: '#F7F7F8',
-					25: '#FAFAFA',
-				},
-				dark: {
-					900: '#FFFFFF', // lightest
-					800: '#F0F1F5',
-					700: '#97A6B4',
-					600: '#6E7E95',
-					500: '#596474',
-					400: '#3F3F55',
-					300: '#39394E',
-					200: '#2E2E41',
-					100: '#24242A',
-					50: '#202027',
-					25: '#15151B',
-				},
-				pending: {
-					DEFAULT: '#FFA940',
-					700: '#CC8733', // darkest
-					600: '#E6983A',
-					400: '#FFC074',
-					200: '#FFEED9',
-					100: '#FFF6EC',
-					50: '#FFFBF5',
-				},
-				error: {
-					DEFAULT: '#DA4343',
-					700: '#AE3636', // darkest
-					600: '#C43C3C',
-					400: '#FF7875',
-					200: '#F8D9D9',
-					100: '#FBECEC',
-					50: '#FDF6F6',
-				},
-				success: {
-					DEFAULT: '#31D067',
-					700: '#26A44D', // darkest
-					600: '#2BB956',
-					400: '#6AE684',
-					200: '#D6F5DF',
-					100: '#EAFAEF',
-					50: '#F5FDF7',
-				},
-				links: {
-					DEFAULT: '#1990FF',
-					700: '#0F5699', // darkest
-					600: '#1473CC',
-					400: '#57AEFF',
-					200: '#A3D3FF',
-					100: '#D1E9FF',
-					50: '#E8F4FF',
-				},
-			},
-		},
-	},
-	plugins: [],
-};
+  content: ['./src/**/*.{html,js,jsx}'],
+  theme: {
+    colors: {
+      branding: {
+        primary: {
+          50: '#FEF8FA',
+          100: '#FDEAF3',
+          200: '#FAD8E5',
+          400: '#F082AC',
+          500: '#E94C89',
+          600: '#DB4781',
+          700: '#BF3E70',
+        },
+        secondary: {
+          50: '#F6F5FC',
+          100: '#EDECFA',
+          200: '#B0A7E6',
+          400: '#6558DE',
+          500: '#4F3CC8',
+          600: '#4837B6',
+          700: '#3E2F9E',
+        },
+      },
+      light: {
+        neutral: {
+          25: '#FFFFFF',
+          50: '#F7F7F8',
+          100: '#F1F2F4',
+          200: '#EBECF0',
+          300: '#DFE1E6',
+          400: '#C1C7D0',
+          500: '#B3BAC5',
+          600: '#9199A7',
+          700: '#6B778C',
+          800: '#253858',
+          900: '#091E42',
+        },
+        link: {
+          50: '#E8F4FF',
+          100: '#D1E9FF',
+          200: '#A3D3FF',
+          400: '#57AEFF',
+          500: '#1990FF',
+          600: '#1473CC',
+          700: '#0F5699',
+        },
+        success: {
+          50: '#F5FDF7',
+          100: '#EAFAEF',
+          200: '#D6F5DF',
+          400: '#6AE684',
+          500: '#31D067',
+          600: '#2BB956',
+          700: '#26A44D',
+        },
+        pending: {
+          50: '#FFFBF5',
+          100: '#FFF6EC',
+          200: '#FFEED9',
+          400: '#FFC074',
+          500: '#FFA940',
+          600: '#E6983A',
+          700: '#CC8733',
+        },
+        error: {
+          50: '#FDF6F6',
+          100: '#FBECEC',
+          200: '#F8D9D9',
+          400: '#FF7875',
+          500: '#DA4343',
+          600: '#C43C3C',
+          700: '#AE3636',
+        },
+      },
+      dark: {
+        neutral: {
+          25: '#15151B',
+          50: '#202027',
+          100: '#24242A',
+          200: '#2E2E41',
+          300: '#39394E',
+          400: '#3F3F55',
+          500: '#596474',
+          600: '#6E7E95',
+          700: '#98A6B5',
+          800: '#F0F1F5',
+          900: '#FFFFFF',
+        },
+        link: {
+          50: '#213B59',
+          100: '#1F466D',
+          200: '#18548C',
+          500: '#0084FF',
+          600: '#3F9FFA',
+          700: '#6AB5FC',
+        },
+        success: {
+          50: '#21573C',
+          100: '#1F6B41',
+          200: '#188B4B',
+          500: '#00FF6E',
+          600: '#50F48C',
+          700: '#78F9A3',
+        },
+        pending: {
+          50: '#574E23',
+          100: '#6B6120',
+          200: '#8B7C19',
+          500: '#FEDD00',
+          600: '#F4E950',
+          700: '#F9F578',
+        },
+        error: {
+          50: '#562632',
+          100: '#6A2A38',
+          200: '#88293C',
+          500: '#F9264E',
+          600: '#FF5071',
+          700: '#F47383',
+        },
+      },
+      ...colors,
+    },
+    fontSize: {
+      'heading-1': ['3rem', { letterSpacing: '0.01em', lineHeight: '4rem' }],
+      'heading-2': [
+        '2.5rem',
+        { letterSpacing: '0.01em', lineHeight: '3.5rem' },
+      ],
+      'heading-3': ['2rem', { letterSpacing: '0.01em', lineHeight: '2.5rem' }],
+      'title-1': ['1.5rem', { letterSpacing: '0.01em', lineHeight: '2rem' }],
+      'title-2': [
+        '1.25rem',
+        { letterSpacing: '0.01em', lineHeight: '1.75rem' },
+      ],
+      'title-3': ['1.125rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
+      'title-4': [
+        '0.875rem',
+        { letterSpacing: '0.01em', lineHeight: '1.25rem' },
+      ],
+      'body-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
+      'body-2': [
+        '0.875rem',
+        { letterSpacing: '0.01em', lineHeight: '1.25rem' },
+      ],
+      'body-3': ['0.75rem', { letterSpacing: '0.01em', lineHeight: '1rem' }],
+      'caption-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
+      'caption-2': [
+        '0.875rem',
+        { letterSpacing: '0.01em', lineHeight: '1.25rem' },
+      ],
+      'caption-3': ['0.75rem', { letterSpacing: '0.01em', lineHeight: '1rem' }],
+      'menu-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
+      'menu-2': [
+        '0.875rem',
+        { letterSpacing: '0.01em', lineHeight: '1.25rem' },
+      ],
+    },
+    extend: {
+      fontFamily: {
+        graphik: ['"graphik-regular"'],
+        'graphik-medium': ['"graphik-medium"'],
+        'graphik-semibold': ['"graphik-semibold"'],
+        'graphik-bold': ['"graphik-bold"'],
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'class', // only generate classes
+    }),
+  ],
+}

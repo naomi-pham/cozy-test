@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'graphik-bold';
+    src: url('https://fonts.cozy-cost.just.engineer/GraphikBlack.otf');
+  }
+
+  @font-face {
+    font-family: 'graphik-semibold';
+    src: url('https://fonts.cozy-cost.just.engineer/GraphikSemibold.otf');
+  }
+
+  @font-face {
+    font-family: 'graphik-medium';
+    src: url('https://fonts.cozy-cost.just.engineer/GraphikMedium.otf');
+  }
+
+  @font-face {
+    font-family: 'graphik-regular';
+    src: url('https://fonts.cozy-cost.just.engineer/GraphikRegular.otf');
+  }
+}
+
+body {
+  color: #9199a7;
+}
+
+.bg-banner {
+  background: linear-gradient(141.69deg, rgba(114, 99, 211, 0.2) 0%, rgba(181, 172, 236, 0.2) 100%), #FFFFFF;
+}
